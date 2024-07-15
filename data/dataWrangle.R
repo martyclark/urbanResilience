@@ -26,8 +26,8 @@ get_github_data <- function(username, repo, filepath, sheet = 1, branch = "main"
 raw_data <- get_github_data(
   username = "martyclark",
   repo = "urbanResilience",
-  filepath = "data/your_data.xls",
-  sheet = "Sheet1"  # Replace with your sheet name or number
+  filepath = "data/GHS_STAT_UCDB2015MT_GLOBE_R2019A_V1_2.xls",
+  sheet = "Index"  # Replace with your sheet name or number
 )
 
 # Rest of your data wrangling code...
