@@ -22,7 +22,7 @@ get_github_data <- function(username, repo, filepath, sheet = 1, branch = "main"
   }
 }
 
-# Get the data
+# Get the data of the indicator names
 raw_data <- get_github_data(
   username = "martyclark",
   repo = "urbanResilience",
@@ -30,4 +30,25 @@ raw_data <- get_github_data(
   sheet = "Index"  # Replace with your sheet name or number
 )
 
-# Rest of your data wrangling code...
+#subset to just the variable names and defintions
+indicators <- 
+  raw_data %>%
+  select(`Column(s)`, Attribute)
+
+
+#drop NA rows
+indicators <-
+  indicators %>%
+  drop_na()
+
+
+# Get the data of the variables names
+ghsl <- get_github_data(
+  username = "martyclark",
+  repo = "urbanResilience",
+  filepath = "data/GHS_STAT_UCDB2015MT_GLOBE_R2019A_V1_2.xls",
+  sheet = "Data"  # Replace with your sheet name or number
+)
+
+#melt this data frame
+names(ghsl)
